@@ -1,8 +1,8 @@
 # **java-development**
 
 ### Table of Contents
-> -[Git Hub Practice](#git-hub-practice)
-> -[My Favorite Movies](#my-favorite-movies)
+1. [Git Hub Practice](#git-hub-practice)
+2. [My Favorite Movies](#my-favorite-movies)
 
 > ## ***Git Hub Practice***
 >
@@ -14,3 +14,6 @@
 1. Intersellar
 2. The Prestige
 3. Fight Club
+
+## *Top Pokemon*
+1. ![https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/1.png]
