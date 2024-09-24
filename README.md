@@ -16,4 +16,4 @@
 3. Fight Club
 
 ## *Top Pokemon*
-1. ![Bulbasaur](https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/1.png)
+1. Charlizard ![Bulbasaur](https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/6.png)
