@@ -17,3 +17,4 @@
 
 ## *Top Pokemon*
 1. Charlizard ![Bulbasaur](https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/6.png)
+2. Rayquaze ![Rayquaza](https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/284.png)
