@@ -1,8 +1,8 @@
 # **java-development**
 
 ### Table of Contents
-[Link Text](#git-hub-practice)
-[Link Text](#my-favorite-movies)
+> -[Git Hub Practice](#git-hub-practice)
+> -[My Favorite Movies](#my-favorite-movies)
 
 > ## ***Git Hub Practice***
 >
