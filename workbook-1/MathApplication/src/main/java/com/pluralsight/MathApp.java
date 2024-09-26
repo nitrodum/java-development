@@ -45,6 +45,7 @@ public class MathApp {
         System.out.println("The absolute value is " + Math.abs(neg));
 
         //Question 7:
-        System.out.println("The random number is " + Math.random());
+        System.out.printf("The random number is %#.2f" + "\n", Math.random() );
+        System.out.printf("The random number is %#.2f" + "\n", Math.random() );
     }
 }
