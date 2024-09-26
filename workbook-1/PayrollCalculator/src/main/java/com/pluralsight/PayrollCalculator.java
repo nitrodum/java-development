@@ -35,7 +35,13 @@ public class PayrollCalculator {
                 scanner.next();
             }
         } while (!isValid);
-        float grossPay = payRate*hoursWorked;
+        float grossPay = 0.0f;
+
+        if (hoursWorked < 40) {
+            grossPay = hoursWorked * payRate;
+        } else {
+            grossPay = (40f*payRate) + ((hoursWorked-40f)*payRate*1.5f);
+        }
 
         System.out.printf("Hello, %s your gross pay is $%.2f", name, grossPay);
         scanner.close();
