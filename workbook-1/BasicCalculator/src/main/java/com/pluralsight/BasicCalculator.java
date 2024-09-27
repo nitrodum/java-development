@@ -3,36 +3,34 @@ package com.pluralsight;
 import java.util.Scanner;
 
 public class BasicCalculator {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        int x = 0;
-        int y = 0;
+        int x = getNumber();
+        int y = getNumber();
+        doOperation(x, y);
+        scanner.close();
+
+    }
+
+    public static int getNumber() {
         boolean validInput = false;
-
-        Scanner scanner = new Scanner(System.in);
+        int number = 0;
         do {
-            System.out.println("Enter the first number: ");
+            System.out.println("Enter a number: ");
             if (scanner.hasNextInt()){
-                x = scanner.nextInt();
+                number = scanner.nextInt();
                 validInput = true;
             } else {
                 System.out.println("Not a valid number, please enter another number:");
                 scanner.next();
             }
         } while (!validInput);
-        validInput = false;
+        return number;
+    }
 
-        do {
-            System.out.println("Enter the second number: ");
-            if (scanner.hasNextInt()){
-                y = scanner.nextInt();
-                validInput = true;
-            } else {
-                System.out.println("Not a valid number, please enter another number:");
-                scanner.next();
-            }
-        } while (!validInput);
-        scanner.nextLine();
-        validInput = false;
+    public static void doOperation(int x, int y) {
+        String operation = "";
+        boolean validInput = false;
         String input;
         do {
             System.out.println("Possible calculations:\n" +
@@ -68,6 +66,5 @@ public class BasicCalculator {
             }
             scanner.nextLine();
         } while (!validInput);
-        scanner.close();
     }
 }
