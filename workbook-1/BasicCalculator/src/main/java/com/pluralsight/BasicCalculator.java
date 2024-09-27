@@ -29,7 +29,6 @@ public class BasicCalculator {
     }
 
     public static void doOperation(int x, int y) {
-        String operation = "";
         boolean validInput = false;
         String input;
         do {
