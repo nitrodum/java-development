@@ -32,7 +32,6 @@ public class SandwichShop {
         System.out.println("What is your age?");
         int age = scanner.nextInt();
 
-
         if (age <= 17) {
             price *= .9f;
         } else if (age >= 65) {
