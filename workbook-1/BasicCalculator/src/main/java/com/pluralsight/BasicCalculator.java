@@ -11,8 +11,6 @@ public class BasicCalculator {
         scanner.close();
 
     }
-    public BasicCalculator(){
-    }
 
     public static int getNumber() {
         boolean validInput = false;
