@@ -8,7 +8,7 @@ public class MortgageCalculator {
         System.out.println("Welcome to the Mortgage Calculator!");
         double p = input("Principle");
         double r = input("Interest Rate")/100/12;
-        double n = 12*input("Loan Length");
+        double n = input("Loan Length")*12;
 
         double m = getMonthly(p, r, n);
         System.out.printf("Your monthly rate is : $%.2f\n", m);
@@ -18,7 +18,7 @@ public class MortgageCalculator {
     }
     public static double input(String message) {
         System.out.println("Please enter your " + message);
-        return scanner.nextFloat();
+        return scanner.nextDouble();
     }
 
     public static double getMonthly(double p, double r, double n) {
