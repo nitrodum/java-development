@@ -7,6 +7,7 @@ public class RentalCarCalculator {
         float price = 29.99f;
         float optionsCost = 0f;
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Hi, welcome to Car Company!\n" +
                 "Please enter the date you would like to pick up the car!");
         String date = scanner.nextLine();
@@ -43,6 +44,11 @@ public class RentalCarCalculator {
             price *= 1.3f;
         }
 
+        System.out.printf("Your basic rental cost is : $%.2f\n" ,(29.99f*daysOfRental));
+        System.out.printf("Your options cost is : $%.2f\n", (optionsCost*daysOfRental));
+        if(age < 25 ) {
+            System.out.printf("Your surcharge is : $%.2f\n", (29.99f*.3f) * daysOfRental);
+        }
         price = (price + optionsCost) * daysOfRental;
 
         System.out.printf("For your car rental starting on %s your total cost is $%.2f", date, price);
