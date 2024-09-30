@@ -10,6 +10,7 @@ public class CompoundInterestCalculator {
         double r = input("interest rate")/100;
         double t = input("number of years");
         double n = 365;
+        scanner.close();
 
         double A = getFutureValue(p, r, t, n);
         System.out.printf("The future value of this account is: $%.2f\n", A);

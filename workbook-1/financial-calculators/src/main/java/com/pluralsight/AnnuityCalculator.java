@@ -9,6 +9,7 @@ public class AnnuityCalculator {
         double p = input("monthly payout");
         double r = input("interest rate")/100/12;
         double t = input("years to pay out")*12;
+        scanner.close();
 
         double pv = getPresentValue(p, r, t);
         System.out.printf("The present value for this annuity is: $%.2f", pv);
