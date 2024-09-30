@@ -11,7 +11,10 @@ public class MortgageCalculator {
         double n = 12*input("Loan Length");
 
         double m = getMonthly(p, r, n);
-        System.out.printf("Your monthly rate is : $%.2f", m);
+        System.out.printf("Your monthly rate is : $%.2f\n", m);
+
+        double totalInterest = (m*n)-p;
+        System.out.printf("Your total interest is : $%.2f\n", totalInterest);
     }
     public static double input(String message) {
         System.out.println("Please enter your " + message);
