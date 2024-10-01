@@ -20,6 +20,7 @@ public class FullNameApplication {
 
         System.out.println("Enter your suffix or press enter.");
         String suffix = scanner.nextLine().trim();
+        scanner.close();
 
         if (!suffix.isEmpty()){
             suffix = ", " + suffix;
