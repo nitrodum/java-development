@@ -10,10 +10,17 @@ public class TimeCalculator {
         System.out.println("Enter the minutes to add or subtract");
         int timeToAdd = scanner.nextInt();
 
-        int hours = timeToAdd / 60;
-        int minutes = timeToAdd % 60;
+        int hoursToAdd = timeToAdd / 60;
+        float minutesToAdd = (timeToAdd % 60)/100f;
 
-        System.out.println("Hours: " + hours);
-        System.out.println("Minutes: " + minutes);
+        int currentHours = (int) time;
+        float currentMinutes = time - currentHours;
+
+        int newHours = (hoursToAdd + currentHours)%24;
+        float newMinutes = minutesToAdd + currentMinutes;
+
+        time = newHours + newMinutes;
+
+        System.out.println("New time = " + time);
     }
 }
