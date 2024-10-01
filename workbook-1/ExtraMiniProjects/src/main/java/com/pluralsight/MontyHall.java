@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class MontyHall {
     static Scanner scanner = new Scanner(System.in);
     static Integer[] doors = new Integer[3];
+    static int prize = (int)(Math.random()*3);
     public static void main(String[] args) {
-        int prize = (int)(Math.random()*3);
         populateDoors();
         System.out.println("Welcome to the Monty Hall Game!\n" +
                 "One of these three doors contains a big prize while the other two contain nothing.\n" +

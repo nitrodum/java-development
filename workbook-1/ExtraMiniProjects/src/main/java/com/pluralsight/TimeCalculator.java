@@ -9,6 +9,7 @@ public class TimeCalculator {
         float time = scanner.nextFloat();
         System.out.println("Enter the minutes to add or subtract");
         int timeToAdd = scanner.nextInt();
+        scanner.close();
 
         int hoursToAdd = timeToAdd / 60;
         float minutesToAdd = (timeToAdd % 60)/100f;
