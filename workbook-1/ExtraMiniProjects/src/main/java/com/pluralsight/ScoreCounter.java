@@ -18,5 +18,6 @@ public class ScoreCounter {
             }
         }
         System.out.println("The count of score over 7 is: " + count);
+        scanner.close();
     }
 }

@@ -8,6 +8,7 @@ public class CollectingWords {
 
     public static void main(String[] args) {
         fourWords();
+        scanner.close();
     }
 
     public static void collectWordsInWhile() {
