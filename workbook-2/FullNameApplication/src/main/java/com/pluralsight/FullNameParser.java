@@ -8,7 +8,7 @@ public class FullNameParser {
         System.out.println("Enter your name in the format first last or first middle last");
         String name = scanner.nextLine().trim();
         scanner.close();
-        String[] names = name.split("// ");
+        String[] names = name.split("\\s");
 
         System.out.println("First name: " + names[0]);
         if (names.length == 3) {
