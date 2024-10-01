@@ -49,7 +49,11 @@ public class GuessTheNumber {
             System.out.println("You got the right number " + random + " on the first try!");
         } else {
             while (guess != random) {
-                System.out.println("Guess again");
+                if (guess > random) {
+                    System.out.println("Guess lower");
+                } else {
+                    System.out.println("Guess higher");
+                }
                 guess = getGuess(guesses);
                 count++;
             }
