@@ -11,7 +11,9 @@ public class CollectingWords {
         String word;
         System.out.println("Please enter a word.");
         while (!(word = scanner.nextLine()).isBlank()) {
-            wordList.add(word);
+            if (!wordList.contains(word)) {
+                wordList.add(word);
+            }
             for (int i = 0; i < wordList.size(); i++) {
                 if (i == 0) {
                     System.out.print(wordList.get(i));
