@@ -8,12 +8,15 @@ public class CellPhoneApplication {
 
         CellPhone phone1 = createPhone();
         CellPhone phone2 = createPhone();
+        CellPhone phone3 = new CellPhone(1234, "Iphone", "Atnt", "408733222", "Nima");
+        display(phone3);
 
         display(phone1);
         display(phone2);
 
         phone1.dial(phone2.getPhoneNumber());
         phone2.dial(phone1.getPhoneNumber());
+        phone3.dial(phone1);
 
         scanner.close();
     }
