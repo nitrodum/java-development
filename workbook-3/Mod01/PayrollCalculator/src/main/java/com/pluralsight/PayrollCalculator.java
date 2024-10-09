@@ -15,6 +15,7 @@ public class PayrollCalculator {
                 Employee employee = new Employee(Integer.parseInt(data[0]), data[1], Float.parseFloat(data[2]), Float.parseFloat(data[3]));
                 System.out.printf("Employee: %s, Employee ID: %d, Gross Pay: $%.2f\n", employee.getName(), employee.getEmployeeId(), employee.getGrossPay());
             }
+            bufferedReader.close();
         } catch (Exception e) {
             System.out.println("Invalid File");
             e.printStackTrace();
