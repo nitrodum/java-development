@@ -48,7 +48,6 @@ public class PayrollCalculator {
                 employeeDataList.add(employeeData);
                 System.out.printf("Employee: %s, Employee ID: %d, Gross Pay: $%.2f\n", employee.getName(), employee.getEmployeeId(), employee.getGrossPay());
             }
-
             if (json) {
                 bufferedWriter.write("[\n");
                 for (int i = 0; i < employeeDataList.size(); i++) {
