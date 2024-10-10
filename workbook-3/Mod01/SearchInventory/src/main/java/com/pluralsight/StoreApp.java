@@ -39,8 +39,10 @@ public class StoreApp {
                     break;
                 case 3:
                     findInPriceRange();
+                    break;
                 case 4:
                     addProduct();
+                    break;
             }
         } while (choice != 5);
     }
