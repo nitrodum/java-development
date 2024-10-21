@@ -3,7 +3,7 @@ package com.pluralsight;
 public class Reservation {
     private final float KING_RATE = 139f;
     private final float DOUBLE_RATE = 123f;
-    private final float WEEKEND_RATE = 1.1f;
+    private final float WEEKENDRATE = 1.1f;
     private String roomType;
     private int numberOfNights;
     private boolean weekend;
@@ -36,7 +36,7 @@ public class Reservation {
         }
 
         if (this.weekend) {
-            price *= WEEKEND_RATE;
+            price *= WEEKENDRATE;
         }
         return price;
     }
