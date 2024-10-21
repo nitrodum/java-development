@@ -36,6 +36,6 @@ public class Room {
     }
 
     public boolean isAvailable() {
-        return !occupied && !dirty;
+        return !this.occupied && !this.dirty;
     }
 }

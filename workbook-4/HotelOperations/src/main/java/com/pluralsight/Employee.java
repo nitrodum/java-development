@@ -14,6 +14,14 @@ public class Employee {
         this.payRate = payRate;
     }
 
+    public Employee(int employeeId, String name, String department, float payRate, float hoursWorked) {
+        this.employeeId = employeeId;
+        this.name = name;
+        this.department = department;
+        this.payRate = payRate;
+        this.hoursWorked = hoursWorked;
+    }
+
     public float getHoursWorked() {
         return hoursWorked;
     }

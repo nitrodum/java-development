@@ -10,6 +10,7 @@ public class Main {
 
         System.out.println(room2.isAvailable());
 
+        Reservation res1 = new Reservation("King", 2, false);
 
     }
 }
