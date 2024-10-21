@@ -1,9 +1,12 @@
 package com.pluralsight;
 
 public class Reservation {
-    String roomType;
-    int numberOfNights;
-    boolean weekend;
+    private final float KING_RATE = 139f;
+    private final float DOUBLE_RATE = 123f;
+    private final float WEEKEND_RATE = 1.1f;
+    private String roomType;
+    private int numberOfNights;
+    private boolean weekend;
 
     public Reservation(String roomType, int numberOfNights, boolean weekend) {
         setRoomType(roomType);
@@ -27,13 +30,13 @@ public class Reservation {
     public float getPrice() {
         float price = 0f;
         if(this.roomType.equalsIgnoreCase("king")) {
-            price = 139;
-        } else if (this.roomType.equalsIgnoreCase("double")) {
-            price = 123;
+            price = KING_RATE;
+        } else {
+            price = DOUBLE_RATE;
         }
 
         if (this.weekend) {
-            price *= 1.1f;
+            price *= WEEKEND_RATE;
         }
         return price;
     }

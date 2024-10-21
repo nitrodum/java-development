@@ -1,11 +1,13 @@
 package com.pluralsight;
 
 public class Employee {
-    int employeeId;
-    String name;
-    String department;
-    float payRate;
-    float hoursWorked;
+    private final float MAX_REGULAR_HOURS = 40f;
+    private final float OVER_TIME_RATE = 1.5f;
+    private int employeeId;
+    private String name;
+    private String department;
+    private float payRate;
+    private float hoursWorked;
 
     public Employee(int employeeId, String name, String department, float payRate) {
         this.employeeId = employeeId;
@@ -31,20 +33,16 @@ public class Employee {
     }
 
     public float getTotalPay() {
-        return payRate*(getRegularHours() + (getOvertimeHours()*1.5f));
+        return payRate*(getRegularHours() + (getOvertimeHours()*OVER_TIME_RATE));
     }
 
     public float getRegularHours() {
-        if (hoursWorked >= 40) {
-            return 40f;
-        } else {
-            return hoursWorked;
-        }
+        return Math.min(hoursWorked, MAX_REGULAR_HOURS);
     }
 
     public float getOvertimeHours() {
-        if (hoursWorked > 40) {
-            return hoursWorked - 40;
+        if (hoursWorked > MAX_REGULAR_HOURS) {
+            return hoursWorked - MAX_REGULAR_HOURS;
         } else {
             return 0;
         }
