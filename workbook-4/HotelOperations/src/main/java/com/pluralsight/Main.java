@@ -17,5 +17,10 @@ public class Main {
         emp1.punchTimeCard(10, 12);
         System.out.println(emp1.getTotalPay());
 
+        Product p = new Product("303a", 10, "Soap", "65-BLA-909f", "Body Soap");
+        p.getSupplierCode();
+        p.order(12);
+        p.order(3);
+
     }
 }
