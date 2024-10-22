@@ -23,8 +23,15 @@ public class Product {
     public void order(int amount) {
         if (stock > amount) {
             System.out.println("Order has been made for " + amount + " " + name);
+            this.stock -= amount;
         } else {
             System.out.println("We do not have that amount in stock.");
+        }
+    }
+
+    public void order(int[] amounts) {
+        for (int amount : amounts) {
+            order(amount);
         }
     }
 }

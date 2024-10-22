@@ -19,8 +19,7 @@ public class Main {
 
         Product p = new Product("303a", 10, "Soap", "65-BLA-909f", "Body Soap");
         p.getSupplierCode();
-        p.order(12);
-        p.order(3);
+        p.order(new int[]{2,3});
 
     }
 }

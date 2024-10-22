@@ -12,10 +12,21 @@ public class Dog {
     }
 
     public void bark() {
-        System.out.println(name + " says " + sound);
+        System.out.println(name + " says " + this.sound);
     }
 
     public void walk(String person) {
-        System.out.println(person + " walks " + name);
+        System.out.println(person + " walks " + this.name);
+    }
+
+    public void walk(String[] people) {
+        for (String person : people) {
+            System.out.print(person + " ");
+        }
+        System.out.println("walk" + this.name);
+    }
+
+    public void walk(String person, float minuets) {
+        System.out.println(person + " walks " + this.name + " for " + minuets + " minutes");
     }
 }
