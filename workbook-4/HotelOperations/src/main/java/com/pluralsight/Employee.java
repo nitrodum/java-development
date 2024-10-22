@@ -24,6 +24,10 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
+    public void punchTimeCard(double startTime, double endTime) {
+        hoursWorked += (float) (endTime - startTime);
+    }
+
     public float getHoursWorked() {
         return hoursWorked;
     }

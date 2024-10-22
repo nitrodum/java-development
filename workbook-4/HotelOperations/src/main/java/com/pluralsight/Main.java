@@ -11,6 +11,11 @@ public class Main {
         System.out.println(room2.isAvailable());
 
         Reservation res1 = new Reservation("King", 2, false);
+        System.out.println(res1.getReservationTotal());
+
+        Employee emp1 = new Employee(1, "John", "Clerk", 25);
+        emp1.punchTimeCard(10, 12);
+        System.out.println(emp1.getTotalPay());
 
     }
 }
