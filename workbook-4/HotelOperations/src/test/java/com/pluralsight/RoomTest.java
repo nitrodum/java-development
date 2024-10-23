@@ -64,7 +64,7 @@ class RoomTest {
     }
 
     @Test
-    void cleanRoom_doesNotAllowCleanOccupiedRoom() {
+    void cleanRoom_doesNotAllowToCleanOccupiedRoom() {
         Room test = new Room(2, 100);
         test.checkIn();
         test.cleanRoom();
