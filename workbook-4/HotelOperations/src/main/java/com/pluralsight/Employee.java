@@ -28,6 +28,10 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
+    public double getStartTime() {
+        return this.startTime;
+    }
+
     public void punchIn(double time) {
         this.startTime = time;
     }

@@ -12,8 +12,12 @@ public class Room {
     }
 
     public void checkIn() {
-        this.occupied = true;
-        this.dirty = true;
+        if (isAvailable()) {
+            this.occupied = true;
+            this.dirty = true;
+        } else {
+            System.out.println("Sorry this room is not available!");
+        }
     }
 
     public void checkOut() {
@@ -21,7 +25,11 @@ public class Room {
     }
 
     public void cleanRoom() {
-        this.dirty = false;
+        if (this.occupied) {
+            System.out.println("Cannot clean this room, it is currently occupied");
+        } else {
+            this.dirty = false;
+        }
     }
 
     public int getNumberOfBeds() {
