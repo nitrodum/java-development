@@ -7,8 +7,8 @@ public class Main {
         ArrayList<Asset> assets = new ArrayList<Asset>();
         House house1 = new House("Home", "09/20/2019", 500000, "123 Street", 2, 20000, 20000);
         House house2 = new House("Vacation", "10/10/2023", 1000000, "Bahamas", 1, 100000, 1000000);
-        Vehicle car1 = new Vehicle("Daily", "01/12/2013", 30000, "Toyota Corolla", 11, 1000000);
-        Vehicle car2 = new Vehicle("Sport Car", "01/04/2024", 100000, "Nissan GTR", 0, 1000);
+        Vehicle car1 = new Vehicle("Daily", "01/12/2012", 30000, "Toyota Corolla", 2012, 1000000);
+        Vehicle car2 = new Vehicle("Sport Car", "01/04/2024", 100000, "Nissan GTR", 2024, 1000);
 
         assets.add(house1);
         assets.add(house2);

@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
+
 public class Vehicle extends Asset {
     private String makeModel;
     private int year;
@@ -16,8 +18,8 @@ public class Vehicle extends Asset {
     @Override
     public double getValue() {
         double value = getOriginalCost();
-
-        for (int i = 0; i < this.year; i++) {
+        int now = LocalDate.now().getYear();
+        for (int i = 0; i < now - this.year; i++) {
             if (i < 3) {
                 value *= .97;
             } else if (i < 6) {
