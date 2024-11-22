@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) throws SQLException {
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/northwind", args[0], args[1])) {
+        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/northwind", args[0], args[1]);
+        ) {
             getAllProducts(connection);
             getProductByID(connection);
         }
@@ -22,18 +23,18 @@ public class Main {
     }
 
     private static void getProductByID(Connection connection) throws SQLException {
-        System.out.println("Enter the Product ID you would like to search for: ");
+        System.out.println("\nEnter the Product ID you would like to search for: ");
         int id = scanner.nextInt();
         scanner.nextLine();
-        PreparedStatement statement = connection.prepareStatement("""
+        try(PreparedStatement statement = connection.prepareStatement("""
                 SELECT ProductID, ProductName, UnitPrice, UnitsInStock
                 FROM products
-                WHERE ProductID = ?""" );
-        statement.setInt(1, id);
-        ResultSet results = statement.executeQuery();
-        printProducts(results);
-        results.close();
-        statement.close();
+                WHERE ProductID = ?""" )){
+            statement.setInt(1, id);
+            try(ResultSet results = statement.executeQuery()) {
+                printProducts(results);
+            }
+        }
     }
 
     private static void printProducts(ResultSet results) throws SQLException {
