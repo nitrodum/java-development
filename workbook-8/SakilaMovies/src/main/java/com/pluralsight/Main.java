@@ -2,6 +2,7 @@ package com.pluralsight;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
+import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,16 +11,16 @@ import java.util.*;
 
 public class Main {
     private static BasicDataSource dataSource;
+    private static DataManager dm;
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         init(args);
-        try (Connection connection = dataSource.getConnection()) {
-            getActorByLastName(connection);
-            getMoviesByActor(connection);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+        getActorByLastName();
+
+
+        getMoviesByActor();
+
         scanner.close();
     }
 
@@ -30,40 +31,30 @@ public class Main {
         dataSource.setUrl("jdbc:mysql://localhost:3306/sakila");
         dataSource.setUsername(username);
         dataSource.setPassword(password);
+        dm = new DataManager(dataSource);
     }
 
-    private static void getActorByLastName(Connection connection) throws SQLException {
+    private static void getActorByLastName() {
         System.out.println("Enter the last name you would like to search for:");
         String lastName = scanner.nextLine();
 
-        try (PreparedStatement statement = connection.prepareStatement("SELECT first_name, last_name FROM actor WHERE last_name = ?")) {
-            statement.setString(1, lastName);
-            try (ResultSet results = statement.executeQuery()) {
-                printTable(results);
-            }
-        }
+        System.out.printf("%-10s%-20s%-20s\n", "actor_id", "first_name", "last_name");
+        System.out.printf("%-10s%-20s%-20s\n", "-".repeat(9), "-".repeat(19), "-".repeat(19));
+        dm.getActorByLastName(lastName).forEach(System.out::println);
     }
 
-    private static void getMoviesByActor(Connection connection) throws SQLException {
+    private static void getMoviesByActor( ) {
         System.out.println("Enter the first and last name of an actor to see movies they are in.\n" +
                 "First Name: ");
         String firstName = scanner.nextLine();
         System.out.println("Last Name: ");
         String lastName = scanner.nextLine();
 
-        try (PreparedStatement statement = connection.prepareStatement("""
-                SELECT title FROM film AS f
-                INNER JOIN film_actor AS fa
-                ON f.film_id = fa.film_id
-                INNER JOIN actor AS a
-                ON fa.actor_id = a.actor_id
-                WHERE a.first_name = ? AND a.last_name = ?""")) {
-            statement.setString(1, firstName);
-            statement.setString(2, lastName);
-            try (ResultSet results = statement.executeQuery()) {
-                printTable(results);
-            }
-        }
+        System.out.printf("%-9s%-30s%-55s%-14s%-7s\n", "film_id", "title", "description", "release_year", "length");
+        System.out.printf("%-9s%-30s%-55s%-14s%-7s\n", "-".repeat(8), "-".repeat(29), "-".repeat(54),
+                "-".repeat(13), "-".repeat(7));
+        dm.getMoviesByActor(firstName, lastName).forEach(System.out::println);
+
     }
 
     private static void printTable(ResultSet results) throws SQLException {
