@@ -1,11 +1,14 @@
 package com.pluralsight;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+
 import java.sql.*;
 import java.util.*;
 import java.util.function.Consumer;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
+    private static BasicDataSource dataSource;
     private static boolean running = true;
     private static Map<String, List<String>> tables = Map.of(
             "products", List.of("ProductID", "ProductName", "SupplierID", "CategoryID", "QuantityPerUnit", "UnitPrice", "UnitsInStock", "UnitsOnOrder", "ReorderLevel", "Discontinued"),
@@ -14,7 +17,8 @@ public class Main {
     );
 
     public static void main(String[] args) {
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/northwind", args[0], args[1]);
+        init(args);
+        try (Connection connection = dataSource.getConnection()
         ) {
             while (running) {
                 menu(connection);
@@ -23,6 +27,15 @@ public class Main {
             System.out.println("SQL ERROR: " + e.getMessage());
         }
         scanner.close();
+    }
+
+    private static void init(String[] args) {
+        String username = args[0];
+        String password = args[1];
+        dataSource = new BasicDataSource();
+        dataSource.setUrl("jdbc:mysql://localhost:3306/northwind");
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
     }
 
     private static void menu(Connection connection) throws SQLException {
