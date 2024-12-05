@@ -1,0 +1,166 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        input, button {
+            margin: 5px 0;
+            padding: 5px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Hello, World!</h1>
+<p>Welcome to my first Spring Boot application!</p>
+
+<section>
+    <h2>Manage Courses</h2>
+    <form id="courseForm" method="post">
+        <label for="courseName">Name:</label>
+        <input type="text" id="courseName" name="name" required><br>
+
+        <label for="courseDescription">Description:</label>
+        <input type="text" id="courseDescription" name="description" required><br>
+
+        <label for="courseAvgGrade">Average Grade:</label>
+        <input type="number" id="courseAvgGrade" name="avgGrade" step="0.01" required><br>
+
+        <button type="submit" onclick="submitCourse(event)">Add Course</button>
+    </form>
+    <button onclick="location.href='/courses'">View All Courses</button>
+    <!--
+    <button onclick="location.href='/courses/search?name='">Search Courses</button>
+    -->
+</section>
+
+<section>
+    <h2>Manage Students</h2>
+    <form id="studentForm" method="post">
+        <label for="studentName">Name:</label>
+        <input type="text" id="studentName" name="name" required><br>
+
+        <label for="studentEmail">Email:</label>
+        <input type="email" id="studentEmail" name="email" required><br>
+
+        <label for="studentAge">Age:</label>
+        <input type="number" id="studentAge" name="age" min="1" required><br>
+
+        <button type="submit" onclick="submitStudent(event)">Add Student</button>
+    </form>
+
+    <button onclick="location.href='/students'">View All Students</button>
+    <!--
+    <button onclick="location.href='/students/search?name='">Search Students</button>
+    -->
+</section>
+
+<section>
+    <h2>Associate Students and Courses</h2>
+    <form id="associateForm" method="post">
+        <label for="courseId">Course ID:</label>
+        <input type="number" id="courseId" name="courseId" required><br>
+
+        <label for="studentId">Student ID:</label>
+        <input type="number" id="studentId" name="studentId" required><br>
+
+        <button type="submit" onclick="associateStudentToCourse(event)">Add Student to Course</button>
+    </form>
+</section>
+
+<script>
+    async function submitCourse(event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        const name = document.getElementById('courseName').value;
+        const description = document.getElementById('courseDescription').value;
+        const avgGrade = document.getElementById('courseAvgGrade').value;
+
+        const response = await fetch('/courses', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, description, avgGrade }),
+        });
+
+        if (response.ok) {
+            alert('Course added successfully!');
+        } else {
+            alert('Failed to add course.');
+        }
+    }
+
+    async function submitStudent(event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        const name = document.getElementById('studentName').value;
+        const email = document.getElementById('studentEmail').value;
+        const age = document.getElementById('studentAge').value;
+
+        const response = await fetch('/students', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, age }),
+        });
+
+        if (response.ok) {
+            alert('Student added successfully!');
+        } else {
+            alert('Failed to add student.');
+        }
+    }
+
+    async function associateStudentToCourse(event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        const courseId = document.getElementById('courseId').value;
+        const studentId = document.getElementById('studentId').value;
+
+        const response = await fetch(`/courses/${courseId}/students/${studentId}`, {
+            method: 'POST',
+        });
+
+        if (response.ok) {
+            alert('Student added to course successfully!');
+        } else {
+            alert('Failed to associate student with course.');
+        }
+    }
+</script>
+</body>
