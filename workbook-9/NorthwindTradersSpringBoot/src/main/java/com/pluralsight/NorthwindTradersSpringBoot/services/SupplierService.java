@@ -1,5 +1,7 @@
-package com.pluralsight.NorthwindTradersSpringBoot;
+package com.pluralsight.NorthwindTradersSpringBoot.services;
 
+import com.pluralsight.NorthwindTradersSpringBoot.models.Suppliers;
+import com.pluralsight.NorthwindTradersSpringBoot.repositories.SupplierRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

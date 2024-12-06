@@ -1,5 +1,6 @@
-package com.pluralsight.NorthwindTradersSpringBoot;
+package com.pluralsight.NorthwindTradersSpringBoot.repositories;
 
+import com.pluralsight.NorthwindTradersSpringBoot.models.Suppliers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

@@ -1,5 +1,6 @@
 package com.pluralsight.NorthwindTradersSpringBoot;
 
+import com.pluralsight.NorthwindTradersSpringBoot.models.Suppliers;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.ArrayList;
