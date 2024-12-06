@@ -57,4 +57,12 @@ public class SupplierService {
     public void delete(int id) {
         this.supplierRepository.deleteById(id);
     }
+
+    public SupplierRepository getSupplierRepository() {
+        return supplierRepository;
+    }
+
+    public void setSupplierRepository(SupplierRepository supplierRepository) {
+        this.supplierRepository = supplierRepository;
+    }
 }

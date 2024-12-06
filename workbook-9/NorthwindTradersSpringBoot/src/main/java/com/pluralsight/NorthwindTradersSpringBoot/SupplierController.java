@@ -1,5 +1,6 @@
 package com.pluralsight.NorthwindTradersSpringBoot;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,20 @@ public class SupplierController {
             return ResponseEntity.status(HttpStatus.FOUND).body(s);
         }
             return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/search")
+    public List<Suppliers> searchSuppliers(
+            @RequestParam String key,
+            @RequestParam String operation,
+            @RequestParam String value,
+            @RequestParam(defaultValue = "false") boolean orPredicate
+    ) {
+        SupplierSpecificationsBuilder builder = new SupplierSpecificationsBuilder();
+        builder.with(key, operation, value, orPredicate);
+        Specification<Suppliers> spec = builder.build();
+
+        return this.supplierService.getSupplierRepository().findAll(spec);
     }
 
     @PostMapping
