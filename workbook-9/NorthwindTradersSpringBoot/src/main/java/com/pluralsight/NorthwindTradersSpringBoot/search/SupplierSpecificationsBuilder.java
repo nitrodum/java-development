@@ -1,4 +1,4 @@
-package com.pluralsight.NorthwindTradersSpringBoot;
+package com.pluralsight.NorthwindTradersSpringBoot.search;
 
 import com.pluralsight.NorthwindTradersSpringBoot.models.Suppliers;
 import org.springframework.data.jpa.domain.Specification;

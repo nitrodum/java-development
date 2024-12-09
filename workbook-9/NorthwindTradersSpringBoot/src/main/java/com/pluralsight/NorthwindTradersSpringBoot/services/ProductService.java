@@ -1,6 +1,7 @@
 package com.pluralsight.NorthwindTradersSpringBoot.services;
 
 import com.pluralsight.NorthwindTradersSpringBoot.models.Product;
+import com.pluralsight.NorthwindTradersSpringBoot.repositories.JdbcProductDao;
 import com.pluralsight.NorthwindTradersSpringBoot.repositories.ProductDao;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +10,9 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private final ProductDao productDao;
+    private final JdbcProductDao productDao;
 
-    public ProductService(ProductDao productDao) {
+    public ProductService(JdbcProductDao productDao) {
         this.productDao = productDao;
     }
 

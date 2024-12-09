@@ -1,6 +1,6 @@
 package com.pluralsight.NorthwindTradersSpringBoot.controllers;
 
-import com.pluralsight.NorthwindTradersSpringBoot.SupplierSpecificationsBuilder;
+import com.pluralsight.NorthwindTradersSpringBoot.search.SupplierSpecificationsBuilder;
 import com.pluralsight.NorthwindTradersSpringBoot.models.Suppliers;
 import com.pluralsight.NorthwindTradersSpringBoot.services.SupplierService;
 import org.springframework.data.jpa.domain.Specification;
