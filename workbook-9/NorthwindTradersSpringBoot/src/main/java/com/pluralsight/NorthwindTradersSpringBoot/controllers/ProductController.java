@@ -19,8 +19,27 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> getAllProducts() {
-        return ResponseEntity.ok(productService.getAllProducts());
+    public ResponseEntity<List<Product>> getAllProducts(@RequestParam(required = false) String name,
+                                                        @RequestParam(required = false) String categoryId,
+                                                        @RequestParam(required = false) Double price,
+                                                        @RequestParam(required = false) String operation) {
+        List<Product> filter = productService.getAllProducts();
+        if (name != null) {
+            filter = filter.stream().filter(product -> product.getName().equalsIgnoreCase(name)).toList();
+        }
+        if (categoryId != null) {
+            filter = filter.stream().filter(product -> product.getCategory().equalsIgnoreCase(categoryId)).toList();
+        }
+        if (price != null) {
+            if (operation.equalsIgnoreCase(">")) {
+                filter = filter.stream().filter(product -> product.getPrice() > price).toList();
+            } else if(operation.equalsIgnoreCase("<")) {
+                filter = filter.stream().filter(product -> product.getPrice() < price).toList();
+            } else {
+                filter = filter.stream().filter(product -> product.getPrice() == price).toList();
+            }
+        }
+        return ResponseEntity.ok(filter);
     }
 
     @GetMapping("{id}")

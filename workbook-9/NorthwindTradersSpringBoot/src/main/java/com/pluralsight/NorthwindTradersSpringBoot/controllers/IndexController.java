@@ -1,14 +1,11 @@
 package com.pluralsight.NorthwindTradersSpringBoot.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class IndexController {
 
-    @RequestMapping(path="/", method = RequestMethod.GET)
+    @GetMapping
     public String index(@RequestParam( defaultValue = "World") String country) {
         return "Hello " + country + "!";
     }
